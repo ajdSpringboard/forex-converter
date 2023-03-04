@@ -1,0 +1,19 @@
+{% extends 'base.html'%}
+
+{% block title%}Home{%endblock%}
+
+{% block content %}
+    <h1>Currency Converter!</h1>
+
+    <form method="POST">
+        {{ form.csrf_token }}
+        {{ form.curr_from.label }} {{ form.curr_from }}
+        {{ form.curr_to.label }} {{ form.curr_to }}
+        {{ form.curr_amt.label }} {{ form.curr_amt }}
+        {{ form.submit }}
+    </form>
+
+    {% if result and result != 'None' %}
+    <p>Your result is: {{result}}</p>
+    {% endif %}
+{%endblock%}
